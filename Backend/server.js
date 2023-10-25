@@ -3,10 +3,16 @@ const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet"); // adds a bunch of standard security to a server
 const Event = require("./models/Event.js");
+const path = require("path")
+
 const PORT = 3000;
 
 require('dotenv').config();
 require("./config/db.js")
+
+
+app.use(express.static(path.join(__dirname, "../client/dist")))
+
 
 const app = express();
 
